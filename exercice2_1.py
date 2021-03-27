@@ -2,7 +2,7 @@
 """
 Created on Wed Mar 10 09:57:27 2021
 
-@author: Mathilde
+@author: Mathilde Vandevoorde
 
 This code gives us the solar and non solar heat fluxes depending on the days of the year
 """

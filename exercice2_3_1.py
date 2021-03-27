@@ -2,7 +2,7 @@
 """
 Created on Wed Mar 10 10:50:07 2021
 
-@author: Mathilde
+@author: Mathilde Vandevoorde
 
 This code is the mix of all the others. It calculates the surface temperature and the ice thickness.
 """

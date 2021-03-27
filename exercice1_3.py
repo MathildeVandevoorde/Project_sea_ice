@@ -2,7 +2,7 @@
 """
 Created on Wed Mar 10 09:16:23 2021
 
-@author: Mathilde
+@author: Mathilde Vandevoorde
 
 This code adds a constant amount of snow on top of the ice
 """

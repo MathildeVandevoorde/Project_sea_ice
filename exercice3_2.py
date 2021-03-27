@@ -2,7 +2,9 @@
 """
 Created on Wed Mar 24 14:29:13 2021
 
-@author: Mathilde
+@author: Mathilde Vandevoorde
+
+Code final, avec formation de snow-ice ou non
 """
 
 import numpy as np
@@ -40,7 +42,7 @@ days = np.arange(days_number)
 T_su = np.zeros(days_number) #Surface temperature[K]
 T_w = np.zeros(days_number) #Water Temperature [K]
 T_w[0] = T_bo #mixed layer temperature
-snow_ice = 0
+snow_ice = 0 #0 if you don't want snow-ice formation, 1 if you want snow ice formation
 
     
 def getQ_sol(day):
@@ -123,11 +125,14 @@ for i in np.arange(days_number-1):
             T_w[i+1] = T_bo
         else :
             h_i[i+1] = 0
-    h_d = (rhos*h_s[i] + rhoi*h_i[i])/rhow
-    if h_d>h_i[i] and snow_ice == 1:
-        deltah = (rhos*h_s[i] + rhoi*h_i[i] - rhow*h_i[i])/(rhos+rhow-rhoi)
-        h_s[i+1] = h_s[i] - deltah
-        h_i[i+1] = h_i[i] + deltah
+            
+    #Snow-ice formation
+    h_d = (rhos*h_s[i] + rhoi*h_i[i])/rhow #snow-ice draft
+    #We check if there is snow beneath the sea level :
+    if h_d>h_i[i] and snow_ice == 1: 
+        deltah = (rhos*h_s[i] + rhoi*h_i[i] - rhow*h_i[i])/(rhos+rhow-rhoi) #Snow that is beneath the sea level
+        h_s[i+1] = h_s[i] - deltah #We remove the snow beneath the sea level
+        h_i[i+1] = h_i[i] + deltah #We add the snow beneath the sea level to the ice
 
 #We calculate the last temperature, because we only do it until days_number-1 before
 resolv = np.max(np.roots([-epsilon*sigma,0,0,-ki/h_i[-1],ki*T_bo/h_i[-1] + getQ_sol(365)*(1-alb) + getQ_nsol(365)]))

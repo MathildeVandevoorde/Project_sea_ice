@@ -2,7 +2,7 @@
 """
 Created on Wed Mar 10 10:16:28 2021
 
-@author: Mathilde
+@author: Mathilde Vandevoorde
 
 This code calculates the surface temperature.
 """

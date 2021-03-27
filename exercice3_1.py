@@ -2,7 +2,7 @@
 """
 Created on Thu Mar 18 09:51:13 2021
 
-@author: Mathilde
+@author: Mathilde Vandevoorde
 """
 
 

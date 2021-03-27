@@ -2,7 +2,7 @@
 """
 Created on Wed Mar 10 09:16:23 2021
 
-@author: Mathilde
+@author: Mathilde Vandevoorde
 
 This function gives us the growth of sea ice according to Stefan law
 """
